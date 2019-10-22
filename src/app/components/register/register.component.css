@@ -1,22 +1,22 @@
-.login{
+.register{
     width: 50%;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     background: #f7f7f7;
-    height: auto;
+    height:auto;
     border: 1px solid #000;
     border-radius: 4px;
     padding: 2em;
 }
-.login h2{
+.register h2{
     margin: 0;
     text-align: center;
 }
-.login label{
+.register label{
     margin-top: 1em;
 }
-.login input{
+.register input{
     border: 1px solid #cacaca;
     height: 2em;
     border-radius: 3px;
