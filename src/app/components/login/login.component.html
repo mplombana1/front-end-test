@@ -1,10 +1,16 @@
 <div class="login">
-    <h2>Login</h2>
-    <label for="username">Username</label>
-    <input type="text" name="username" [(ngModel)]="username">
+    <form role="form" [formGroup]="form">
+        <h2>Login</h2>
+        <div class="form-field">
+            <label for="username">Username</label>
+            <input type="text" name="username" formControlName="username">
+        </div>
 
-    <label for="password">Password</label>
-    <input type="password" name="password" [(ngModel)]="password">
-
-    <button class="submit" (click)="submit()">SUBMIT</button>
+        <div class="form-field">
+            <label for="password">Password</label>
+            <input type="password" name="password" formControlName="password">
+        </div>  
+        <button class="submit" (click)="submit()">SUBMIT</button>
+    </form>
+  
 </div>

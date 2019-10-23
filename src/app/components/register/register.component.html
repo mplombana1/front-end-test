@@ -1,13 +1,9 @@
 <div class="register">
   <h2>Register</h2>
-  <label for="firstName">First Name</label>
-  <input type="text" name="firstName" [(ngModel)]="firstname" />
-
-  <label for="lastName">Last Name</label>
-  <input type="text" name="lastName" [(ngModel)]="lastname" />
 
   <label for="username">Username</label>
-  <input type="text" name="username" [(ngModel)]="username" />
+  <input type="text" name="username" required minlength="4" [(ngModel)]="username" />
+  
 
   <label for="password">Password</label>
   <input type="password" name="password" [(ngModel)]="password" />
