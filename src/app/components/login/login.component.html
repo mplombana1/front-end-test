@@ -7,6 +7,9 @@
         <label style="display:block;" for="username">Username</label>
         <input style="width:100%;"type="text" name="username" formControlName="username" />
       </div>
+      <div *ngIf="usernameControl">
+        <span>Please ente</span>
+      </div>
 
       <div class="form-field">
         <label style="display:block;"  for="password">Password</label>
