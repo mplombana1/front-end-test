@@ -1,0 +1,17 @@
+<div class="register">
+  <h2>Register</h2>
+
+  <label for="username">Username</label>
+  <input type="text" name="username" required minlength="4" [(ngModel)]="username" />
+  
+
+  <label for="password">Password</label>
+  <input type="password" name="password" [(ngModel)]="password" />
+
+  <button class="submit" (click)="submit()">SUBMIT</button>
+</div>
+
+<div class="login">
+    <p>Already have an account? Login <a [routerLink]="['/login']">Here</a>
+    </p>
+</div>

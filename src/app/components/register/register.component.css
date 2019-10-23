@@ -1,0 +1,30 @@
+.register{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background: #f7f7f7;
+    height:auto;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 2em;
+    margin-top:5em;
+}
+.register h2{
+    margin: 0;
+    text-align: center;
+}
+.register label{
+    margin-top: 1em;
+}
+.register input{
+    border: 1px solid #cacaca;
+    height: 2em;
+    border-radius: 3px;
+}
+.submit{
+    margin: 1em 6em;
+}
+.login{
+    text-align: center;
+}
