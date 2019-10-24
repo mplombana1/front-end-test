@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { error } from '@angular/compiler/src/util';
 
 
 @Injectable({
@@ -19,7 +20,7 @@ export class LoginService {
       username:username,
       password:password
     }
-    return this.http.post(url, credentials)
+    return this.http.post(url, credentials).pipe(error => (error))
   }
 
   validateToken():Promise<boolean>{

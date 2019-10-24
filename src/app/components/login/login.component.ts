@@ -41,28 +41,17 @@ export class LoginComponent implements OnInit {
     }
     if (val.username && val.password) {
       this.login.getAuth(val.username, val.password).subscribe(res => {
+        console.log(res);
         if (res) {
-          console.log(res);
+          console.log(res, 'my response');
           localStorage.setItem("isLoggedIn", "true");
           localStorage.setItem("username", res['username']);
           sessionStorage.setItem('token', res['token'])
           this.isUserLoggedIn = true;
           this.router.navigate(["/home"]);
-        }
-
-        // console.log(res, "res");
-        // this.response = res;
-        // console.log(this.response.length);
-
-        // if (this.response.length > 0) {
-        //   localStorage.setItem("isLoggedIn", "true");
-        //   localStorage.setItem("username", res[0].username);
-        //   this.isUserLoggedIn = true;
-        //   this.router.navigate(["/home"]);
-        // } else {
-        //   alert("The Username or Password does not exist");
-        // }
-      });
+        } 
+       
+      },err => alert('Login Credentials could not be found'))
     }
   }
 }
