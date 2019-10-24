@@ -1,16 +1,32 @@
 <div class="register">
   <h2>Register</h2>
 
-  <label for="username">Username</label>
-  <input type="text" name="username" required minlength="4" [(ngModel)]="username" />
-  
+  <form role="form" [formGroup]="form">
 
-  <label for="password">Password</label>
-  <input type="password" name="password" [(ngModel)]="password" />
+      <div class="form-field">
+          <label style="display:block;" for="username">Username</label>
+          <input style="width:100%;"type="text" name="username" formControlName="username" />
+          <div *ngIf="form.get('username').invalid && (form.get('username').dirty || form.get('username').touched)"
+           class="alert alert-danger">
+              <div *ngIf="form.get('username').errors.required" style="color:red;">
+                  username is required.
+              </div>
+          </div>
+        </div>
+       
+        <div class="form-field">
+          <label style="display:block;"  for="password">Password</label>
+          <input style="width:100%;"type="password" name="password" formControlName="password" />
+          <div *ngIf="form.get('password').invalid && (form.get('password').dirty || form.get('password').touched)"
+          class="alert alert-danger">
+            <div *ngIf="form.get('password').errors.required" style="color:red;">
+                password is required.
+            </div>
+          </div>
+        </div>
 
-  <button class="submit" (click)="submit()">SUBMIT</button>
-</div>
-
+  </form>
+<button class="submit" (click)="submit()">SUBMIT</button>
 <div class="login">
     <p>Already have an account? Login <a [routerLink]="['/login']">Here</a>
     </p>
