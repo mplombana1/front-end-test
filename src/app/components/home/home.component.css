@@ -14,7 +14,7 @@
 .container {
     margin-top:0.3em;
     text-align: center;
-    height: 500px;
+    height: 100vh;
     background: linear-gradient(to top,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%);
 }
 .container img{
@@ -40,5 +40,5 @@
 .logout a{
     text-decoration: underline;
     cursor: pointer;
-    margin-top: 1em;
+    margin-top: 0.5em;
 }

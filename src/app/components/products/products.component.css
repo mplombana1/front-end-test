@@ -32,9 +32,14 @@
 .container {
     margin-top:0.3em;
     text-align: center;
-    height: 500px;
+    height:100vh;
     background: linear-gradient(to top,  #f0f9ff 10%,#80808054 37%,#80808073 100%);
+    /* margin: 0 3em; */
+    transition: margin 700ms;
+}
+.container.open{
     margin: 0 3em;
+
 }
 .container img{
     z-index: -1;
