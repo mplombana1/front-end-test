@@ -7,12 +7,36 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  constructor(private http: HttpClient) { }
-  url = 'https://sailtimes.prestoapi.com/api/login'
+  constructor(private http: HttpClient) { 
+    this.validateToken();
+  }
+  url = 'https://sailtimes.prestoapi.com/api/register';
+  token:string;
   
   getAuth(username, password){
-    const url = `https://sailtimes.prestoapi.com/api/login?username=${username}&password=${password}`
-    return this.http.get(url)
+    const url = 'https://sailtimes.prestoapi.com/api/login'
+    var credentials = {
+      username:username,
+      password:password
+    }
+    return this.http.post(url, credentials)
+  }
+
+  validateToken():Promise<boolean>{
+    if (sessionStorage.getItem('token')){
+      return new Promise((resolve) =>{
+        const url = 'https://sailtimes.prestoapi.com/api/token/' + sessionStorage.getItem('token');
+        
+        return this.http.get(url).subscribe(res =>{
+          console.log(res,'token response');
+          if (res){
+            this.token = res['encodedPayload']
+          }
+        })
+      })
+
+     
+    }
   }
 
   postAuth(form){

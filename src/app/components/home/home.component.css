@@ -3,12 +3,13 @@
     height:3em;
     background: #000;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .header i {
     color:#fff;
     margin-top: 1em;
+    margin-left: 4em;
 }
 .container {
     margin-top:0.3em;
@@ -32,11 +33,12 @@
 .logout{
     display: flex;
     flex-direction: row-reverse;
-    margin-top: 3em;
     margin-right: 1em;
+    color:#fff;
 }
 
 .logout a{
     text-decoration: underline;
     cursor: pointer;
+    margin-top: 1em;
 }
