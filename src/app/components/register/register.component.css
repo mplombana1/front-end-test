@@ -23,7 +23,8 @@
     border-radius: 3px;
 }
 .submit{
-    margin: 1em 6em;
+    margin: 1em 13em;
+    height: 2em;
 }
 .login{
     text-align: center;

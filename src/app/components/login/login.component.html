@@ -3,18 +3,33 @@
     <h2>Login</h2>
 
     <div class="login">
-      <div class="form-field">
-        <label style="display:block;" for="username">Username</label>
-        <input style="width:100%;"type="text" name="username" formControlName="username" />
-      </div>
-      <div *ngIf="usernameControl">
-        <span>Please ente</span>
-      </div>
+      <form role="form" [formGroup]="form">
 
-      <div class="form-field">
-        <label style="display:block;"  for="password">Password</label>
-        <input style="width:100%;"type="password" name="password" formControlName="password" />
-      </div>
+          <div class="form-field">
+              <label style="display:block;" for="username">Username</label>
+              <input style="width:100%;"type="text" name="username" formControlName="username" />
+              <div *ngIf="form.get('username').invalid && (form.get('username').dirty || form.get('username').touched)"
+               class="alert alert-danger">
+                  <div *ngIf="form.get('username').errors.required" style="color:red;">
+                      username is required.
+                  </div>
+              </div>
+            </div>
+           
+            <div class="form-field">
+              <label style="display:block;"  for="password">Password</label>
+              <input style="width:100%;"type="password" name="password" formControlName="password" />
+              <div *ngIf="form.get('password').invalid && (form.get('password').dirty || form.get('password').touched)"
+              class="alert alert-danger">
+                <div *ngIf="form.get('password').errors.required" style="color:red;">
+                    password is required.
+                </div>
+              </div>
+            </div>
+
+      </form>
+    
+
     </div>
     <button class="submit" (click)="submit()">SUBMIT</button>
   </form>

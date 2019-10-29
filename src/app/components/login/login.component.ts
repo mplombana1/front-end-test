@@ -1,5 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl
+} from "@angular/forms";
 import { LoginService } from "../../services/login.service";
 import { Router } from "@angular/router";
 @Component({
@@ -9,14 +14,8 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  username: any;
-  password: any;
-
-  isUserLoggedIn: boolean = false;
-  response: any;
-
-  usernameControl:boolean = false;
-  passwordControl:boolean = false;
+  username: string;
+  password: string;
 
   constructor(
     private fb: FormBuilder,
@@ -24,36 +23,34 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {
     this.form = this.fb.group({
-      username: [''],
-      password: ['']
+      username: new FormControl("", [Validators.required]),
+      password: new FormControl("", [Validators.required])
     });
   }
 
   ngOnInit() {}
-  
-  submit() {
-    const val = this.form.value;
-    if (val.username.length === 0){
-      this.usernameControl = true;
-    }
-    if(val.password.length === 0 ){
-      this.passwordControl = true;
-    }
-    if (val.username && val.password) {
-      this.login.getAuth(val.username, val.password).subscribe(res => {
-        console.log(res, "res");
-        this.response = res;
-        console.log(this.response.length);
 
-        if (this.response.length > 0) {
-          localStorage.setItem("isLoggedIn", "true");
-          localStorage.setItem("username", res[0].username);
-          this.isUserLoggedIn = true;
-          this.router.navigate(["/home"]);
-        } else {
-          alert("The Username or Password does not exist");
-        }
-      });
+  submit() {
+    //checks if form is valid
+    Object.keys(this.form.controls).forEach(field =>{
+      const control = this.form.get(field);
+      control.markAsTouched({onlySelf: true})
+    })
+
+    const val = this.form.value;
+    if (val.username && val.password) {
+      this.login.getAuth(val.username, val.password).subscribe(
+        res => {
+          console.log(res);
+          if (res) {
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("username", res["username"]);
+            sessionStorage.setItem("token", res["token"]);
+            this.router.navigate(["/home"]);
+          }
+        },
+        err => alert("Login Credentials could not be found")
+      );
     }
   }
 }
