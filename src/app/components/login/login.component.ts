@@ -7,13 +7,16 @@ import {
 } from "@angular/forms";
 import { LoginService } from "../../services/login.service";
 import { Router } from "@angular/router";
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"], 
+  styleUrls: ["./login.component.css"],
+  
   
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements AfterViewInit {
   form: FormGroup;
   username: string;
   password: string;
@@ -30,9 +33,9 @@ export class LoginComponent implements OnInit {
       password: new FormControl("", [Validators.required])
     });
   }
-
-  ngOnInit() {
+  ngAfterViewInit(){
   }
+ 
  
 
   submit() {

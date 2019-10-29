@@ -20,6 +20,7 @@
 }
 .header .nav-bar span {
    margin-right:2em;
+   cursor: pointer;
 }
 .notify {
     color:#fff;
@@ -52,4 +53,27 @@
 .container h4 {
     margin-top: 9em;
     color: #00adff;
+}
+.iphone-text{
+    float:left;
+    margin-left:10em;
+    text-align: center;
+}
+.iphone-text button{
+    color: #fff;
+    background: #0072ff;
+    height: 3em;
+    padding: 2px 14px;
+    border-radius: 6px;
+    border: none;
+    width: 6em;
+    margin-top: 1em;
+}
+.iphone{
+    height:50vh
+}
+.iphone-img img{
+    width:50%;
+    float:right;
+    /* margin-right: 10em; */
 }

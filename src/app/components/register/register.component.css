@@ -33,7 +33,9 @@
     border: none;
     background: #00adff;
     color: #fff;
-    height: 2em;
+    height: 2.5em;
+    cursor: pointer;
+
 }
 .login{
     text-align: center;

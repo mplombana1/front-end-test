@@ -4,9 +4,9 @@
     </div>
 
     <div class="nav-bar">
-        <span>iPhone</span>
-        <span>MacBook Pro</span>
-        <span>Watch</span>
+        <span (click)="scrollToElement(target)" >iPhone</span>
+        <!-- <span>MacBook Pro</span> -->
+        <!-- <span>Watch</span> -->
         <span class="notify">Notify Me</span>
     </div>
 
@@ -19,4 +19,18 @@
     <h1>Welcome To Apple</h1>
     <h4>See our Products</h4>
   
-  </div>
+</div>
+
+<div class="iphone" #target>
+    <div class="iphone-text" >
+        <h3>Iphone X</h3>
+        <h2>Just the Right amount of everything</h2>
+        <span>From $16.62/mo. or
+            $399 with trade-in.*
+        </span><br>
+        <button>BUY</button>
+    </div>
+    <div class="iphone-img" [@changeOpacity]=currentState2>
+        <img src="assets/images/iphone.png" alt="">
+    </div>
+</div>
