@@ -9,7 +9,7 @@ import { error } from '@angular/compiler/src/util';
 export class LoginService {
 
   constructor(private http: HttpClient) { 
-    this.validateToken();
+    // this.validateToken();
   }
   url = 'https://sailtimes.prestoapi.com/api/register';
   token:string;

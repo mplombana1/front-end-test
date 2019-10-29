@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef  } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { Router } from "@angular/router";
@@ -25,7 +25,7 @@ import { Router } from "@angular/router";
 export class HomeComponent implements AfterViewInit {
   currentState = 'initial';
 
-  constructor(private router :Router ) { }
+  constructor(private router :Router,private cdr: ChangeDetectorRef ) { }
 
   changeState() {
     this.currentState = this.currentState === 'initial' ? 'final' : 'initial';
@@ -33,6 +33,8 @@ export class HomeComponent implements AfterViewInit {
 
   ngAfterViewInit(){
     this.changeState();
+    this.cdr.detectChanges();
+
   }
 
   logout(){

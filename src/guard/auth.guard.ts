@@ -8,13 +8,13 @@ import { LoginService } from 'src/app/services/login.service';
 export class AuthGuard implements CanActivate {
  constructor(private router: Router, private login: LoginService) {}
  canActivate() {
-  if(this.login.validateToken()){
-    console.log('here now ');
-    console.log(this.login.token)
+  // if(this.login.validateToken()){
+  //   console.log('here now ');
+  //   console.log(this.login.token)
 
-  }
+  // }
 
-  console.log(this.login.token,'my token now');
+  // console.log(this.login.token,'my token now');
 
 
    if (localStorage.getItem("isLoggedIn") === "true") {

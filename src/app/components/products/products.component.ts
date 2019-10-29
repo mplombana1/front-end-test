@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from "@angular/core";
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from "@angular/core";
 import {
   trigger,
   state,
@@ -38,11 +38,11 @@ import {
       state(
         "final",
         style({
-          margin: "10em"
+          margin: "5em"
         })
       ),
       transition("initial=>final", animate("1000ms")),
-      transition("final=>initial", animate("2000ms"))
+      transition("final=>initial", animate("1500ms"))
     ])
   ]
 })
@@ -51,20 +51,21 @@ export class ProductsComponent implements AfterViewInit {
   currentState2 = "initial";
 
 
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {}
   changeState() {
     this.currentState = this.currentState === "initial" ? "final" : "initial";
 
   }
 
   changeMargin(){
-    this.currentState2 = this.currentState2 === "initial" ? "final" : "initial";
+    this.currentState2 = this.currentState2 === "initial" ? "final" : "final";
 
   }
   ngOnInit() {}
 
   ngAfterViewInit() {
     this.changeState();
+    this.cdr.detectChanges();
   }
 
   scrollToElement($element): void {
