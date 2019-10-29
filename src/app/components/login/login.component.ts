@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,AfterViewInit } from "@angular/core";
 import {
   FormBuilder,
   FormGroup,
@@ -10,12 +10,15 @@ import { Router } from "@angular/router";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  styleUrls: ["./login.component.css"], 
+  
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
   username: string;
   password: string;
+  currentState = 'initial';
+
 
   constructor(
     private fb: FormBuilder,
@@ -28,7 +31,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+ 
 
   submit() {
     //checks if form is valid

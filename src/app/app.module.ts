@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProductsComponent } from './components/products/products.component';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { Browser } from '../../node_modules/protractor';
 
 @NgModule({
   declarations: [

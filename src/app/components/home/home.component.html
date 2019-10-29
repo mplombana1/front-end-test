@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header" >
   <div></div>
   <div>
     <i class="fa fa-apple"></i>
@@ -9,11 +9,11 @@
     </div>
 </div>
 
-<div class="container" [routerLink]="['/products']" style="cursor:pointer;">
+<div class="container" [routerLink]="['/products']" style="cursor:pointer;" [@changeOpacity]=currentState>
   <img src="assets/images/apple-logo.png" alt="" />
 
   <h4>New Products Coming This Fall</h4>
-  <h2>2019</h2>
+  <h2 >2019</h2>
 
 </div>
 

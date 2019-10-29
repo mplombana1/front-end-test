@@ -26,16 +26,18 @@
                 </div>
               </div>
             </div>
-
       </form>
-    
 
     </div>
-    <button class="submit" (click)="submit()">SUBMIT</button>
+   
+      <button class="submit" (click)="submit()">SUBMIT</button>
+  
+
+    <div class="register">
+      <p>Don't have an account? Register 
+        <a [routerLink]="['/register']">Here</a>
+      </p>
+    </div>
   </form>
 </div>
 
-<div class="register">
-    <p>Don't have an account? Register <a [routerLink]="['/register']">Here</a>
-    </p>
-</div>
